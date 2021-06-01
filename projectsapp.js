@@ -85,3 +85,26 @@ console.(eightBall);
 
 
 
+// PROJECT 4 - CONDITIONALS - RACE DAY
+
+let raceNumber = Math.floor(Math.random() * 1000);
+
+const raceEarly = true;
+
+const age = 18;
+
+if (raceEarly && age > 18){
+  raceNumber += 1000;
+  console.log(`You will race at 9:30 AM.  Your number is ${raceNumber}`);
+}
+else if (!raceEarly && age > 18){
+  console.log(`You will race at 11:00 AM.  Your number is ${raceNumber}`)
+}
+else if(age < 18){
+  console.log(`You will race at 12:30AM.  Your number is ${raceNumber}`)
+}
+else {
+  console.log('See the registration desk.')
+}
+
+// while age is 18 message will always read See the registration desk.  Adults who register early will race at 9:30 and be given a number over 1000.  Adults who register late will go at 11:00 and be given a race number under 1000.  All minors will race at 12:30 with a number under 1000.
