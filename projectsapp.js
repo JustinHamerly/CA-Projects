@@ -179,3 +179,46 @@ playGame();
 
 
 
+// PROJECT 6 - FUNCTIONS - SLEEP DEBT CALCULATOR
+
+//assigns default sleep hours to each day of the week
+const getSleepHours = day => {
+  switch (day){
+  case 'monday' :
+    return 8;
+  case 'tuesday' :
+    return 8;
+  case 'wednesday' :
+    return 8;
+  case 'thursday' :
+    return 8;
+  case 'friday' :
+    return 8;
+  case 'saturday' :
+    return 8;
+  case 'sunday' :
+    return 8;
+  }
+}
+//function gets actual hours with no parameters in the function using concise body form
+const getActualSleepHours = () => getSleepHours('monday') + getSleepHours('tuesday') + getSleepHours('wednesday') + getSleepHours('thursday') + getSleepHours('friday') + getSleepHours('saturday') + getSleepHours('sunday');
+//function for getting ideal sleep hours
+const getIdealSleepHours = () =>{
+  const idealHours = 8.5;
+  return idealHours * 7;
+}
+//calculates sleep debt
+const calculateSleepDebt = () =>{
+  const actualSleepHours = getActualSleepHours();
+  const idealSleepHours = getIdealSleepHours();
+  const sleepDebt = getIdealSleepHours() - getActualSleepHours();
+  if (actualSleepHours === idealSleepHours){
+    console.log(`You sleept an ideal amount!  Congratulations! Your sleep debt is ${sleepDebt}`);
+  } else if (actualSleepHours > idealSleepHours){
+        console.log(`You slept too much!  Your sleep debt is ${sleepDebt} hours`);
+  } else {
+    console.log(`Time to sleep... you need ${sleepDebt} hours of sleep!`)
+  }
+}
+
+calculateSleepDebt();
