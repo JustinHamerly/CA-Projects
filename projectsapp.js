@@ -108,3 +108,74 @@ else {
 }
 
 // while age is 18 message will always read See the registration desk.  Adults who register early will race at 9:30 and be given a number over 1000.  Adults who register late will go at 11:00 and be given a race number under 1000.  All minors will race at 12:30 with a number under 1000.
+
+
+
+
+// PROJECT 5 - FUNCTIONS - ROCK, PAPER, SCISSORS
+
+//user selects rock,paper,or scissors using userInput parameter
+const getUserChoice = userInput => {
+  userInput = userInput.toLowerCase();
+  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors'){
+    return userInput;
+  }else if (userInput === 'bomb'){
+    return 'bomb'
+  }else{
+    return '....';
+  }
+}
+//computer selects rock, paper or scissors randomly
+const getComputerChoice = () => {
+  compInput = Math.floor(Math.random() * 3);
+  switch (compInput){
+    case 0 :
+      return 'rock';
+    case 1 :
+      return 'paper';
+    case 2 :
+      return 'scissors';
+  }
+}
+// compares userChoice to computerChoice
+function determineWinner(userChoice,computerChoice){
+    if (userChoice === 'bomb'){
+        return 'EXPLOSION!  AUTOWIN';
+  } else if (userChoice === computerChoice){
+    return 'Tie!';
+  } else if (userChoice === 'rock'){
+      if(computerChoice === 'paper'){
+        return 'Lose!';
+     } else {
+        return 'Win!';
+     }
+  } else if (userChoice === 'paper'){
+      if (computerChoice === 'scissors'){
+       return 'Lose!';
+     } else {
+       return 'Win!';
+     }
+  } else if (userChoice === 'scissors'){
+    if (computerChoice === 'rock'){
+      return 'Lose!';
+    } else {
+      return 'Win!';
+    }
+  } else {
+    return 'Please select rock, paper or scissors'
+  }
+}
+// change getUserChoice to another string to play in the console
+function playGame(){
+  const userChoice = getUserChoice('bomb');
+  const computerChoice = getComputerChoice();
+  console.log('You chose ' + userChoice + '!');
+  console.log('The computer chose ' + computerChoice + '!');
+  console.log(determineWinner(userChoice, computerChoice));
+}
+
+playGame();
+
+
+
+
