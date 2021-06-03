@@ -1,2 +1,2 @@
 # CA-Projects
-Code Academy Projects
+Codecademy Projects
